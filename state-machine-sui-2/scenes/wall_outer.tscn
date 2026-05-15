@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://d4dwbux4va8mc"]
+
+[ext_resource type="Texture2D" uid="uid://bsybmiqguixt0" path="res://sprites/wall.jpg" id="1_003vx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qv6lu"]
+size = Vector2(480, 12500)
+
+[node name="RigidBody2D6" type="RigidBody2D" unique_id=762725683]
+mass = 1000.0
+lock_rotation = true
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1566806688]
+shape = SubResource("RectangleShape2D_qv6lu")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1453233972]
+z_index = 1
+texture_repeat = 2
+texture = ExtResource("1_003vx")
+region_enabled = true
+region_rect = Rect2(0, 0, 480, 12500)

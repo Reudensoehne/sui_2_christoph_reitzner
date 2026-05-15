@@ -1,0 +1,178 @@
+[gd_scene format=3 uid="uid://bicxannjr0wpm"]
+
+[ext_resource type="Script" uid="uid://cc0ebxmd0wms3" path="res://scripts/menu.gd" id="1_4ytvr"]
+[ext_resource type="Texture2D" uid="uid://bj26ief4fak40" path="res://sprites/crates_pushed.png" id="1_mhnvy"]
+[ext_resource type="Texture2D" uid="uid://th7ivjotta7x" path="res://sprites/crate_stack.png" id="2_4ytvr"]
+[ext_resource type="Texture2D" uid="uid://1qdr4x3bguhr" path="res://sprites/godot_icon_standalone.png" id="3_g3eks"]
+[ext_resource type="Texture2D" uid="uid://cteugdbrdv2mn" path="res://sprites/godot_icon.svg" id="4_v86rl"]
+
+[node name="Main Menu" type="Control" unique_id=933320548 node_paths=PackedStringArray("start_button", "manual_button", "quit_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 2688.0
+offset_bottom = 1512.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4ytvr")
+start_button = NodePath("CanvasLayer/Panel/Button")
+manual_button = NodePath("CanvasLayer/Panel/Button2")
+quit_button = NodePath("CanvasLayer/Panel/Button3")
+_game_scene = "uid://crn7kn52khiew"
+_manual_scene = "uid://c45neq4nf613h"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1909314781]
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1400259919]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Panel" unique_id=1941822709]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -421.0
+offset_top = 627.0
+offset_right = 422.0
+offset_bottom = 883.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 64
+text = "Starten"
+
+[node name="Button2" type="Button" parent="CanvasLayer/Panel" unique_id=1101805803]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -421.0
+offset_top = 1028.0
+offset_right = 422.0
+offset_bottom = 1284.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 64
+text = "Anleitung"
+
+[node name="Button3" type="Button" parent="CanvasLayer/Panel" unique_id=100787873]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -421.0
+offset_top = 1417.0
+offset_right = 422.0
+offset_bottom = 1673.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 64
+text = "Beenden"
+
+[node name="Box" type="TextureRect" parent="CanvasLayer/Panel" unique_id=2129620401]
+layout_mode = 0
+offset_left = 326.99994
+offset_top = 922.00006
+offset_right = 1354.6296
+offset_bottom = 1949.6299
+rotation = 0.32510552
+texture = ExtResource("1_mhnvy")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Box2" type="TextureRect" parent="CanvasLayer/Panel" unique_id=1005531001]
+layout_mode = 0
+offset_left = 845.0
+offset_top = 680.0
+offset_right = 1766.0
+offset_bottom = 1601.0
+texture = ExtResource("1_mhnvy")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Box3" type="TextureRect" parent="CanvasLayer/Panel" unique_id=164244519]
+layout_mode = 0
+offset_left = 2269.9998
+offset_top = 704.99994
+offset_right = 3393.7378
+offset_bottom = 1828.738
+rotation = -1.1095941
+texture = ExtResource("1_mhnvy")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Box4" type="TextureRect" parent="CanvasLayer/Panel" unique_id=1076738511]
+layout_mode = 0
+offset_left = 3647.9998
+offset_top = 710.0
+offset_right = 4262.6797
+offset_bottom = 1324.6797
+rotation = -2.9029417
+texture = ExtResource("1_mhnvy")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Box5" type="TextureRect" parent="CanvasLayer/Panel" unique_id=1670903866]
+layout_mode = 0
+offset_left = 3297.0
+offset_top = 506.0
+offset_right = 3658.984
+offset_bottom = 867.984
+rotation = -2.9029417
+texture = ExtResource("2_4ytvr")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Box6" type="TextureRect" parent="CanvasLayer/Panel" unique_id=1137504122]
+layout_mode = 0
+offset_left = 3599.9995
+offset_top = 2094.0
+offset_right = 4399.9995
+offset_bottom = 2894.0
+rotation = -2.9029417
+texture = ExtResource("2_4ytvr")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Box7" type="TextureRect" parent="CanvasLayer/Panel" unique_id=2141843597]
+layout_mode = 0
+offset_left = 557.0
+offset_top = 631.0
+offset_right = 1043.1887
+offset_bottom = 1117.1887
+rotation = -2.9029417
+texture = ExtResource("2_4ytvr")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Box8" type="TextureRect" parent="CanvasLayer/Panel" unique_id=1553812740]
+layout_mode = 0
+offset_left = 1552.0
+offset_top = 534.0
+offset_right = 2352.0
+offset_bottom = 907.0842
+rotation = -2.9029417
+texture = ExtResource("2_4ytvr")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="icon" type="TextureRect" parent="CanvasLayer/Panel" unique_id=1984834655]
+layout_mode = 0
+offset_left = 2526.0
+offset_top = 1766.0
+offset_right = 2778.0
+offset_bottom = 2018.0
+texture = ExtResource("3_g3eks")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="icon2" type="TextureRect" parent="CanvasLayer/Panel" unique_id=1169044246]
+layout_mode = 0
+offset_left = 726.0
+offset_top = 243.0
+offset_right = 1049.0
+offset_bottom = 566.0
+texture = ExtResource("4_v86rl")
+expand_mode = 2
+stretch_mode = 4

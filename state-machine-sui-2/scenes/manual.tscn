@@ -1,0 +1,677 @@
+[gd_scene format=3 uid="uid://c45neq4nf613h"]
+
+[ext_resource type="Script" uid="uid://mfqrpvbpesdq" path="res://scripts/manual.gd" id="1_olwhw"]
+[ext_resource type="Texture2D" uid="uid://bj26ief4fak40" path="res://sprites/crates_pushed.png" id="2_4c15j"]
+[ext_resource type="Texture2D" uid="uid://b7tgymrqsvyav" path="res://kenney-assets/PNG/Vector/Style 5/emote_question.png" id="4_fjn17"]
+[ext_resource type="Texture2D" uid="uid://do2gmr4vfit7l" path="res://kenney-assets/PNG/Vector/Style 5/emote_sleeps.png" id="5_6vjqn"]
+[ext_resource type="Texture2D" uid="uid://b7qm2edy72plq" path="res://kenney-assets/PNG/Vector/Style 5/emote__.png" id="6_3jepl"]
+[ext_resource type="Texture2D" uid="uid://otfak4vrluls" path="res://kenney-assets/PNG/Vector/Style 5/emote_alert.png" id="7_3x8cq"]
+[ext_resource type="Texture2D" uid="uid://ct1wdtgvb3dtw" path="res://kenney-assets/PNG/Vector/Style 5/emote_exclamation.png" id="7_6vjqn"]
+[ext_resource type="Texture2D" uid="uid://ooys254eynlw" path="res://kenney-assets/PNG/Vector/Style 5/emote_anger.png" id="8_3jepl"]
+[ext_resource type="Texture2D" uid="uid://cgublrrig2xwd" path="res://sprites/arrow.png" id="9_b7jwk"]
+[ext_resource type="Texture2D" uid="uid://c4banyxv6peno" path="res://sprites/crate_destroy.png" id="10_wvja2"]
+[ext_resource type="Texture2D" uid="uid://bt1aferq7tv0e" path="res://sprites/clock.png" id="11_8mmqj"]
+[ext_resource type="Texture2D" uid="uid://bvp7mj5ltl7b4" path="res://sprites/eye.png" id="12_5sccl"]
+[ext_resource type="Texture2D" uid="uid://dkvxypf0tekut" path="res://sprites/eye_crossed.png" id="13_5xnod"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3x8cq"]
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_fkl61"]
+font_size = 128
+
+[sub_resource type="LabelSettings" id="LabelSettings_olwhw"]
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_e6h6h"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_ta7lw"]
+font_size = 60
+outline_size = 3
+
+[node name="Control" type="Control" unique_id=933320548 node_paths=PackedStringArray("back_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 2688.0
+offset_bottom = 1512.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_olwhw")
+back_button = NodePath("CanvasLayer/Panel/Button")
+_menu_scene = "uid://bicxannjr0wpm"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1909314781]
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1400259919]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Panel" unique_id=1941822709]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -1832.0
+offset_top = -2095.0
+offset_right = -1415.0
+offset_bottom = -1944.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 64
+text = "Zurück"
+
+[node name="Box4" type="TextureRect" parent="CanvasLayer/Panel" unique_id=1076738511]
+layout_mode = 0
+offset_left = 3640.0
+offset_top = 1053.0
+offset_right = 4254.6797
+offset_bottom = 1667.6797
+rotation = -2.9029417
+texture = ExtResource("2_4c15j")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel" unique_id=249578944]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -1076.0
+offset_top = 425.0
+offset_right = 1076.0
+offset_bottom = 1122.0
+grow_horizontal = 2
+text = "In dem Spiel geht es darum Kistenstapel umzuwerfen und sich dabei nicht von dem Wächter erwischen zu lassen. Der Wächter hat verschiedene States in denen er sich befinden kann, die das Verhalten den Spielenden gegenüber ändert.
+
+Steuerung:
+WASD / Pfeiltasten:       Bewegen
+Leertaste:                   	      Kisten umwerfen
+H:                                        Sichtradius-Anzeige an-/ausschalten
+J:                                          Hörradius-Anzeige an-/ausschalten
+K:                                         Godmode an-/ausschalten"
+label_settings = SubResource("LabelSettings_3x8cq")
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="CanvasLayer/Panel" unique_id=491602056]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -567.0
+offset_top = 95.0
+offset_right = 568.0
+offset_bottom = 284.0
+grow_horizontal = 2
+text = "Anleitung"
+label_settings = SubResource("LabelSettings_fkl61")
+horizontal_alignment = 1
+
+[node name="Box8" type="TextureRect" parent="CanvasLayer/Panel" unique_id=963333307]
+layout_mode = 0
+offset_left = 243.0
+offset_top = 1422.0
+offset_right = 435.18872
+offset_bottom = 1614.1887
+texture = ExtResource("4_fjn17")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Label3" type="Label" parent="CanvasLayer/Panel/Box8" unique_id=278120018]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -273.09436
+offset_top = 62.81128
+offset_right = 255.90564
+offset_bottom = 129.81128
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 0)
+text = "Verwirrt"
+label_settings = SubResource("LabelSettings_olwhw")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="CanvasLayer/Panel/Box8" unique_id=186300698]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -243.09436
+offset_top = 162.81128
+offset_right = 206.90564
+offset_bottom = 448.81128
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 0)
+text = "- Sicht und Gehör sehr niedrig
+- Endet nach kurzer Zeit oder Finden des Krach-Ursprungs"
+label_settings = SubResource("LabelSettings_e6h6h")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Box9" type="TextureRect" parent="CanvasLayer/Panel" unique_id=81850326]
+layout_mode = 0
+offset_left = 868.0
+offset_top = 1422.0
+offset_right = 1060.1887
+offset_bottom = 1614.1887
+texture = ExtResource("5_6vjqn")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Label3" type="Label" parent="CanvasLayer/Panel/Box9" unique_id=650687617]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -273.09436
+offset_top = 62.81128
+offset_right = 255.90564
+offset_bottom = 129.81128
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 0)
+text = "Schlafend"
+label_settings = SubResource("LabelSettings_olwhw")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="CanvasLayer/Panel/Box9" unique_id=1701894241]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -243.09436
+offset_top = 164.81128
+offset_right = 206.90564
+offset_bottom = 441.81128
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 0)
+text = "- Sicht ausgeschaltet und Gehör niedrig
+- Endet nach mittlerer Zeit oder bei Krach"
+label_settings = SubResource("LabelSettings_e6h6h")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Box10" type="TextureRect" parent="CanvasLayer/Panel" unique_id=884599876]
+layout_mode = 0
+offset_left = 1513.0
+offset_top = 1422.0
+offset_right = 1705.1887
+offset_bottom = 1614.1887
+texture = ExtResource("6_3jepl")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Label3" type="Label" parent="CanvasLayer/Panel/Box10" unique_id=1206173515]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -273.09436
+offset_top = 62.81128
+offset_right = 255.90564
+offset_bottom = 129.81128
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 0)
+text = "Passiv"
+label_settings = SubResource("LabelSettings_olwhw")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="CanvasLayer/Panel/Box10" unique_id=258185772]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -243.09436
+offset_top = 164.81128
+offset_right = 206.90564
+offset_bottom = 441.81128
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 0)
+text = "- Normale Sicht und Gehör
+- Patroulliert die Karte
+- Schäft immer wieder ein"
+label_settings = SubResource("LabelSettings_e6h6h")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Box11" type="TextureRect" parent="CanvasLayer/Panel" unique_id=2019306804]
+layout_mode = 0
+offset_left = 2163.0
+offset_top = 1422.0
+offset_right = 2355.1887
+offset_bottom = 1614.1887
+texture = ExtResource("7_3x8cq")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Label3" type="Label" parent="CanvasLayer/Panel/Box11" unique_id=870096353]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -273.09436
+offset_top = 62.81128
+offset_right = 255.90564
+offset_bottom = 129.81128
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 0)
+text = "Alamiert"
+label_settings = SubResource("LabelSettings_olwhw")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="CanvasLayer/Panel/Box11" unique_id=1062509089]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -243.09436
+offset_top = 164.81128
+offset_right = 206.90564
+offset_bottom = 581.8113
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 0)
+text = "- Erweiterte Sicht und Gehör
+- Patroulliert schneller die Karte
+- Wird wütend wenn Spielende zu lange gesehen werden"
+label_settings = SubResource("LabelSettings_e6h6h")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Box12" type="TextureRect" parent="CanvasLayer/Panel" unique_id=283807862]
+layout_mode = 0
+offset_left = 2829.0
+offset_top = 1422.0
+offset_right = 3021.1887
+offset_bottom = 1614.1887
+texture = ExtResource("7_6vjqn")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Label3" type="Label" parent="CanvasLayer/Panel/Box12" unique_id=1948433256]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -273.09436
+offset_top = 62.81128
+offset_right = 255.90564
+offset_bottom = 129.81128
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 0)
+text = "Wütend"
+label_settings = SubResource("LabelSettings_olwhw")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="CanvasLayer/Panel/Box12" unique_id=751187653]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -243.09436
+offset_top = 158.81128
+offset_right = 206.90564
+offset_bottom = 505.81128
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 0)
+text = "- Erweiterte Sicht und unbegrenztes Gehör
+- Patroulliert noch schneller die Karte
+- Jagt Spielende bei Sichtung"
+label_settings = SubResource("LabelSettings_e6h6h")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Box13" type="TextureRect" parent="CanvasLayer/Panel" unique_id=123647248]
+layout_mode = 0
+offset_left = 3452.0
+offset_top = 1422.0
+offset_right = 3644.1887
+offset_bottom = 1614.1887
+texture = ExtResource("8_3jepl")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Label3" type="Label" parent="CanvasLayer/Panel/Box13" unique_id=1766212596]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -273.09436
+offset_top = 62.81128
+offset_right = 255.90564
+offset_bottom = 129.81128
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 0)
+text = "Jagend"
+label_settings = SubResource("LabelSettings_olwhw")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="CanvasLayer/Panel/Box13" unique_id=1974740664]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -243.09436
+offset_top = 162.81128
+offset_right = 206.90564
+offset_bottom = 579.8113
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 0)
+text = "- Jagt aktiv Spielende
+- Bei Kontakt mit Spielenden -> GAME OVER
+- Geht zurück auf wütend wenn Wächter Spielende aus den Augen verliert"
+label_settings = SubResource("LabelSettings_e6h6h")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/Panel" unique_id=1075197542]
+layout_mode = 0
+offset_left = 766.0
+offset_top = 1531.0
+offset_right = 1008.0
+offset_bottom = 1603.0
+rotation = 3.1415927
+texture = ExtResource("9_b7jwk")
+patch_margin_left = 20
+patch_margin_right = 120
+
+[node name="TextureRect7" type="TextureRect" parent="CanvasLayer/Panel/NinePatchRect" unique_id=157293342]
+layout_mode = 0
+offset_left = 141.0
+offset_top = -21.0
+offset_right = 292.83728
+offset_bottom = 46.503906
+rotation = 3.1415927
+texture = ExtResource("10_wvja2")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="NinePatchRect10" type="NinePatchRect" parent="CanvasLayer/Panel" unique_id=247049760]
+layout_mode = 0
+offset_left = 289.0
+offset_top = 1403.0
+offset_right = 429.0
+offset_bottom = 1475.0
+rotation = -1.5707964
+texture = ExtResource("9_b7jwk")
+patch_margin_left = 20
+patch_margin_right = 120
+
+[node name="TextureRect7" type="TextureRect" parent="CanvasLayer/Panel/NinePatchRect10" unique_id=184649888]
+layout_mode = 0
+offset_left = 105.000015
+offset_top = -89.0
+offset_right = 256.83728
+offset_bottom = -21.496094
+rotation = 1.5707964
+texture = ExtResource("11_8mmqj")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel/NinePatchRect10" unique_id=586994809]
+layout_mode = 0
+offset_left = 221.0
+offset_top = 17.00001
+offset_right = 261.0
+offset_bottom = 100.00001
+rotation = 1.5707964
+text = "1"
+label_settings = SubResource("LabelSettings_ta7lw")
+
+[node name="NinePatchRect11" type="NinePatchRect" parent="CanvasLayer/Panel" unique_id=842588038]
+layout_mode = 0
+offset_left = 2279.0
+offset_top = 1267.0
+offset_right = 2419.0
+offset_bottom = 1339.0
+rotation = 1.5707964
+texture = ExtResource("9_b7jwk")
+patch_margin_left = 20
+patch_margin_right = 120
+
+[node name="TextureRect7" type="TextureRect" parent="CanvasLayer/Panel/NinePatchRect11" unique_id=1998551504]
+layout_mode = 0
+offset_left = 41.000027
+offset_top = 158.0
+offset_right = 192.8373
+offset_bottom = 225.5039
+rotation = -1.5707964
+texture = ExtResource("11_8mmqj")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel/NinePatchRect11" unique_id=1227253712]
+layout_mode = 0
+offset_left = -86.0
+offset_top = 56.000023
+offset_right = -46.0
+offset_bottom = 139.00003
+rotation = -1.5707964
+text = "1"
+label_settings = SubResource("LabelSettings_ta7lw")
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="CanvasLayer/Panel" unique_id=1605571211]
+layout_mode = 0
+offset_left = 1388.0
+offset_top = 1579.0
+offset_right = 1630.0
+offset_bottom = 1651.0
+rotation = 3.1415927
+texture = ExtResource("9_b7jwk")
+patch_margin_left = 20
+patch_margin_right = 120
+
+[node name="TextureRect6" type="TextureRect" parent="CanvasLayer/Panel/NinePatchRect2" unique_id=1296387002]
+layout_mode = 0
+offset_left = 144.0
+offset_top = -12.000057
+offset_right = 295.83728
+offset_bottom = 55.50385
+rotation = 3.1415927
+texture = ExtResource("11_8mmqj")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="NinePatchRect3" type="NinePatchRect" parent="CanvasLayer/Panel" unique_id=92588089]
+layout_mode = 0
+offset_left = 1149.0
+offset_top = 1425.0
+offset_right = 1391.0
+offset_bottom = 1497.0
+texture = ExtResource("9_b7jwk")
+patch_margin_left = 20
+patch_margin_right = 120
+
+[node name="TextureRect7" type="TextureRect" parent="CanvasLayer/Panel/NinePatchRect3" unique_id=1765279537]
+layout_mode = 0
+offset_left = 95.0
+offset_top = -90.0
+offset_right = 246.83728
+offset_bottom = -22.496094
+texture = ExtResource("11_8mmqj")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="NinePatchRect4" type="NinePatchRect" parent="CanvasLayer/Panel" unique_id=1509249526]
+layout_mode = 0
+offset_left = 2045.0
+offset_top = 1579.0
+offset_right = 2287.0
+offset_bottom = 1651.0
+rotation = 3.1415927
+texture = ExtResource("9_b7jwk")
+patch_margin_left = 20
+patch_margin_right = 120
+
+[node name="TextureRect5" type="TextureRect" parent="CanvasLayer/Panel/NinePatchRect4" unique_id=1332938916]
+layout_mode = 0
+offset_left = 148.0
+offset_top = -12.0
+offset_right = 299.83728
+offset_bottom = 55.503906
+rotation = 3.1415927
+texture = ExtResource("11_8mmqj")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="NinePatchRect5" type="NinePatchRect" parent="CanvasLayer/Panel" unique_id=1799281742]
+layout_mode = 0
+offset_left = 1806.0
+offset_top = 1425.0
+offset_right = 2048.0
+offset_bottom = 1497.0
+texture = ExtResource("9_b7jwk")
+patch_margin_left = 20
+patch_margin_right = 120
+
+[node name="TextureRect6" type="TextureRect" parent="CanvasLayer/Panel/NinePatchRect5" unique_id=302938072]
+layout_mode = 0
+offset_left = 89.0
+offset_top = -82.0
+offset_right = 240.83727
+offset_bottom = -14.496094
+texture = ExtResource("10_wvja2")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="NinePatchRect6" type="NinePatchRect" parent="CanvasLayer/Panel" unique_id=147711777]
+layout_mode = 0
+offset_left = 2706.0
+offset_top = 1579.0
+offset_right = 2948.0
+offset_bottom = 1651.0
+rotation = 3.1415927
+texture = ExtResource("9_b7jwk")
+patch_margin_left = 20
+patch_margin_right = 120
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Panel/NinePatchRect6" unique_id=1528057901]
+layout_mode = 0
+offset_left = 160.0
+offset_top = -15.0
+offset_right = 311.83728
+offset_bottom = 52.503906
+rotation = 3.1415927
+texture = ExtResource("11_8mmqj")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="NinePatchRect7" type="NinePatchRect" parent="CanvasLayer/Panel" unique_id=2004899810]
+layout_mode = 0
+offset_left = 2467.0
+offset_top = 1425.0
+offset_right = 2709.0
+offset_bottom = 1497.0
+texture = ExtResource("9_b7jwk")
+patch_margin_left = 20
+patch_margin_right = 120
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Panel/NinePatchRect7" unique_id=544742938]
+layout_mode = 0
+offset_left = 43.0
+offset_top = -70.0
+offset_right = 189.0
+offset_bottom = 19.0
+texture = ExtResource("12_5sccl")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/Panel/NinePatchRect7" unique_id=257063861]
+layout_mode = 0
+offset_left = 85.0
+offset_top = -143.0
+offset_right = 236.83728
+offset_bottom = -75.49609
+texture = ExtResource("11_8mmqj")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="NinePatchRect8" type="NinePatchRect" parent="CanvasLayer/Panel" unique_id=1093706700]
+layout_mode = 0
+offset_left = 3363.0
+offset_top = 1579.0
+offset_right = 3605.0
+offset_bottom = 1651.0
+rotation = 3.1415927
+texture = ExtResource("9_b7jwk")
+patch_margin_left = 20
+patch_margin_right = 120
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Panel/NinePatchRect8" unique_id=917661162]
+layout_mode = 0
+offset_left = 198.99997
+offset_top = 6.9999886
+offset_right = 410.0317
+offset_bottom = 158.83727
+rotation = 3.1415927
+texture = ExtResource("13_5xnod")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="NinePatchRect9" type="NinePatchRect" parent="CanvasLayer/Panel" unique_id=1014862922]
+layout_mode = 0
+offset_left = 3124.0
+offset_top = 1425.0
+offset_right = 3366.0
+offset_bottom = 1497.0
+texture = ExtResource("9_b7jwk")
+patch_margin_left = 20
+patch_margin_right = 120
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/NinePatchRect9" unique_id=1381630842]
+layout_mode = 0
+offset_left = 45.0
+offset_top = -72.0
+offset_right = 191.0
+offset_bottom = 17.0
+texture = ExtResource("12_5sccl")
+expand_mode = 2
+stretch_mode = 4

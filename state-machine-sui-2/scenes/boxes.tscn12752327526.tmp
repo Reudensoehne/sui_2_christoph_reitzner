@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://bxn72p73fuan3"]
+
+[ext_resource type="Texture2D" uid="uid://m06wbe8b7fk4" path="res://sprites/space.png" id="2_ap40d"]
+[ext_resource type="Script" uid="uid://dwg3s074olwij" path="res://scripts/auto_rotate_text.gd" id="3_d3qlm"]
+[ext_resource type="Texture2D" uid="uid://th7ivjotta7x" path="res://sprites/CrateStack.png" id="4_g7uq8"]
+[ext_resource type="Texture2D" uid="uid://bj26ief4fak40" path="res://sprites/crates_pushed.png" id="5_52h34"]
+
+[sub_resource type="GDScript" id="GDScript_3ji21"]
+script/source = "class_name CrateStack
+extends StaticBody2D
+
+@export var _space_bar: Sprite2D
+
+@export var _stacked_collision_shape: CollisionShape2D
+@export var _pushed_collision_shape: CollisionPolygon2D
+
+@export var _stacked_sprite: Sprite2D
+@export var _pushed_sprite: Sprite2D
+
+@export var _area_push: Area2D
+
+var _push_enabled = false
+var _pushed = false
+
+
+func _ready() -> void:
+	_area_push.body_entered.connect(area_entered)
+	_area_push.body_exited.connect(area_exited)
+
+
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed(\"push\") == true and _push_enabled == true:
+		push_over()
+
+
+## Pushes over the crate stack and alarm agents
+func push_over() -> void:
+	_stacked_collision_shape.disabled = true
+	_stacked_sprite.visible = false
+	
+	_pushed_collision_shape.disabled = false
+	_pushed_sprite.visible = true
+	
+	AgentManager.instance.disturb_agents(global_position, self)
+	_space_bar.visible = false
+	_pushed = true
+
+
+## Stacks the crates back up, resetting its state
+func stack_up() -> void:
+	_stacked_collision_shape.set_deferred(\"disabled\" , false)
+	_stacked_sprite.visible = true
+	
+	_pushed_collision_shape.set_deferred(\"disabled\" , true)
+	_pushed_sprite.visible = false
+	
+	_pushed = false
+
+
+## Enables pushing if player gets into interaction area or stacking if
+## agent enters interaction area
+func area_entered(body: Node2D) -> void:
+	if body is CharacterController and _pushed == false:
+		_push_enabled = true
+		_space_bar.visible = true
+	
+	if body is Agent:
+		body.crate_reached(self)
+
+
+## Disables interaction if player leaves area
+func area_exited(body: Node2D) -> void:
+	if body is CharacterController:
+		_push_enabled = false
+		_space_bar.visible = false
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lc2xo"]
+radius = 190.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mfdv2"]
+radius = 290.0
+
+[node name="Boxes" type="StaticBody2D" unique_id=635720250 node_paths=PackedStringArray("_space_bar", "_stacked_collision_shape", "_pushed_collision_shape", "_stacked_sprite", "_pushed_sprite", "_area_push")]
+script = SubResource("GDScript_3ji21")
+_space_bar = NodePath("Space_Bar")
+_stacked_collision_shape = NodePath("Stacked_Coll_Shape")
+_pushed_collision_shape = NodePath("Pushed_Coll_Shape")
+_stacked_sprite = NodePath("Stacked_Crates")
+_pushed_sprite = NodePath("Pushed_Crates")
+_area_push = NodePath("Area2D")
+
+[node name="Space_Bar" type="Sprite2D" parent="." unique_id=1247737564]
+visible = false
+z_index = 7
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ap40d")
+script = ExtResource("3_d3qlm")
+
+[node name="Stacked_Crates" type="Sprite2D" parent="." unique_id=2097805805]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_g7uq8")
+
+[node name="Stacked_Coll_Shape" type="CollisionShape2D" parent="." unique_id=1054538051]
+z_index = 2
+shape = SubResource("CircleShape2D_lc2xo")
+
+[node name="Pushed_Crates" type="Sprite2D" parent="." unique_id=744769428]
+visible = false
+position = Vector2(-1, 199)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_52h34")
+
+[node name="Pushed_Coll_Shape" type="CollisionPolygon2D" parent="." unique_id=34718645]
+position = Vector2(0, 1)
+rotation = 1.5707964
+polygon = PackedVector2Array(467.99997, -187, 599, 32, 378.00003, 164, 349.00003, 114, 25, 184, -127, 127, -128, -129, 376.99997, -132)
+disabled = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=443459460]
+position = Vector2(1, 1.0000153)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=890514587]
+shape = SubResource("CircleShape2D_mfdv2")

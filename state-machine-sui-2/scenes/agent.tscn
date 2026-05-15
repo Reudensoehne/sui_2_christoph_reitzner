@@ -1,0 +1,177 @@
+[gd_scene format=3 uid="uid://dxlws1j2lcser"]
+
+[ext_resource type="Script" uid="uid://bf5ppgxp6pef" path="res://scripts/agent.gd" id="1_bjnd1"]
+[ext_resource type="Texture2D" uid="uid://cteugdbrdv2mn" path="res://sprites/godot_icon.svg" id="1_jv27j"]
+[ext_resource type="Script" uid="uid://x7b0je550j5y" path="res://scripts/state_machine.gd" id="2_dhb2b"]
+[ext_resource type="Script" uid="uid://7cri6lp17wv5" path="res://scripts/states/state_aggro.gd" id="3_8l2ru"]
+[ext_resource type="Script" uid="uid://b6kxvmb8mt0bf" path="res://scripts/states/state_chase.gd" id="4_7po83"]
+[ext_resource type="Script" uid="uid://dvbxo41vwqcnk" path="res://scripts/states/state_alert.gd" id="5_dutxt"]
+[ext_resource type="Texture2D" uid="uid://ooys254eynlw" path="res://kenney-assets/PNG/Vector/Style 5/emote_anger.png" id="5_pq3wj"]
+[ext_resource type="Script" uid="uid://djyijp4icp7iv" path="res://scripts/states/state_passive.gd" id="6_ncr6h"]
+[ext_resource type="Texture2D" uid="uid://ct1wdtgvb3dtw" path="res://kenney-assets/PNG/Vector/Style 5/emote_exclamation.png" id="7_ml23e"]
+[ext_resource type="Script" uid="uid://d00xywdqjpcd4" path="res://scripts/states/state_sleep.gd" id="7_myoc8"]
+[ext_resource type="Script" uid="uid://ctkjra7sbl886" path="res://scripts/states/state_dizzy.gd" id="8_qritk"]
+[ext_resource type="Texture2D" uid="uid://otfak4vrluls" path="res://kenney-assets/PNG/Vector/Style 5/emote_alert.png" id="10_vjao6"]
+[ext_resource type="Texture2D" uid="uid://do2gmr4vfit7l" path="res://kenney-assets/PNG/Vector/Style 5/emote_sleeps.png" id="12_e4yph"]
+[ext_resource type="Texture2D" uid="uid://b7tgymrqsvyav" path="res://kenney-assets/PNG/Vector/Style 5/emote_question.png" id="14_ttpaw"]
+[ext_resource type="Texture2D" uid="uid://0wwghmfnr6fh" path="res://sprites/red_circle.png" id="15_e4yph"]
+[ext_resource type="Texture2D" uid="uid://c4f4im0c6rp1c" path="res://sprites/blue_circle.png" id="16_ttpaw"]
+[ext_resource type="Texture2D" uid="uid://bvp7mj5ltl7b4" path="res://sprites/eye.png" id="17_ttpaw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qritk"]
+radius = 130.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ttpaw"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(1, 0, 0, 0.4)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ttpaw"]
+radius = 134.12
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=57749628 node_paths=PackedStringArray("nav_agent", "_state_machine", "_state_sprite", "_raycast", "_killzone", "vision_radius_sprite", "notice_radius_sprite", "detection_bar")]
+script = ExtResource("1_bjnd1")
+nav_agent = NodePath("NavigationAgent2D")
+_state_machine = NodePath("Agent State Machine")
+_state_sprite = NodePath("Sprite2D2")
+_raycast = NodePath("RayCast2D")
+_killzone = NodePath("Killzone")
+vision_radius_sprite = NodePath("VisionRadius")
+notice_radius_sprite = NodePath("DetectionRadius")
+detection_bar = NodePath("ProgressBar")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=499617959]
+shape = SubResource("CircleShape2D_qritk")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1127723373]
+scale = Vector2(1.545, 1.545)
+texture = ExtResource("1_jv27j")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=312481447]
+target_desired_distance = 50.0
+
+[node name="Agent State Machine" type="Node2D" parent="." unique_id=1272987378 node_paths=PackedStringArray("current_state")]
+script = ExtResource("2_dhb2b")
+current_state = NodePath("Passive State")
+
+[node name="Chase State" type="Node" parent="Agent State Machine" unique_id=298906949 node_paths=PackedStringArray("_state_aggro", "state_machine", "agent")]
+script = ExtResource("4_7po83")
+_state_aggro = NodePath("../Aggro State")
+notice_radius = 99999
+vision_radius = 99999
+_movespeed = 1250
+_texture = ExtResource("5_pq3wj")
+state_machine = NodePath("..")
+agent = NodePath("../..")
+
+[node name="Aggro State" type="Node" parent="Agent State Machine" unique_id=607685070 node_paths=PackedStringArray("_chase_state", "_alert_state", "state_machine", "agent")]
+script = ExtResource("3_8l2ru")
+_chase_state = NodePath("../Chase State")
+_alert_state = NodePath("../Alert State")
+time_until_cooldown = 4.0
+notice_radius = 99999
+vision_radius = 2000
+_movespeed = 1250
+_idle_cooldown_after_reached = 0.2
+_texture = ExtResource("7_ml23e")
+state_machine = NodePath("..")
+agent = NodePath("../..")
+
+[node name="Alert State" type="Node" parent="Agent State Machine" unique_id=700936441 node_paths=PackedStringArray("_state_aggro", "_state_passive", "state_machine", "agent")]
+script = ExtResource("5_dutxt")
+_state_aggro = NodePath("../Aggro State")
+_state_passive = NodePath("../Passive State")
+time_until_cooldown = 6.0
+time_until_aggro = 2.0
+notice_radius = 5000
+vision_radius = 2000
+_movespeed = 900
+_idle_cooldown_after_reached = 1.5
+_texture = ExtResource("10_vjao6")
+state_machine = NodePath("..")
+agent = NodePath("../..")
+
+[node name="Passive State" type="Node" parent="Agent State Machine" unique_id=1840361281 node_paths=PackedStringArray("_state_alert", "_state_sleep", "state_machine", "agent")]
+script = ExtResource("6_ncr6h")
+_state_alert = NodePath("../Alert State")
+_state_sleep = NodePath("../Sleep State")
+time_until_nap = 10.0
+notice_radius = 3000
+vision_radius = 2000
+_movespeed = 600
+_idle_cooldown_after_reached = 3.0
+state_machine = NodePath("..")
+agent = NodePath("../..")
+
+[node name="Sleep State" type="Node" parent="Agent State Machine" unique_id=1954244988 node_paths=PackedStringArray("_state_dizzy", "_state_passive", "state_machine", "agent")]
+script = ExtResource("7_myoc8")
+_state_dizzy = NodePath("../Dizzy State")
+_state_passive = NodePath("../Passive State")
+time_until_wakeup = 10.0
+notice_radius = 2000
+vision_radius = 0
+_movespeed = 0
+_texture = ExtResource("12_e4yph")
+state_machine = NodePath("..")
+agent = NodePath("../..")
+
+[node name="Dizzy State" type="Node" parent="Agent State Machine" unique_id=889662496 node_paths=PackedStringArray("_state_alert", "state_machine", "agent")]
+script = ExtResource("8_qritk")
+_state_alert = NodePath("../Alert State")
+time_until_alert = 5.0
+notice_radius = 500
+vision_radius = 500
+_movespeed = 200
+_idle_cooldown_after_reached = 0.2
+_texture = ExtResource("14_ttpaw")
+state_machine = NodePath("..")
+agent = NodePath("../..")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=753221772]
+position = Vector2(-54, -160)
+scale = Vector2(2.375, 2.375)
+texture = ExtResource("10_vjao6")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1520930161]
+target_position = Vector2(-402, 199)
+
+[node name="VisionRadius" type="Sprite2D" parent="." unique_id=805366109]
+z_index = 99
+texture = ExtResource("15_e4yph")
+
+[node name="DetectionRadius" type="Sprite2D" parent="." unique_id=759371099]
+z_index = 99
+scale = Vector2(2, 2)
+texture = ExtResource("16_ttpaw")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=412925564]
+offset_left = -80.0
+offset_top = 103.0
+offset_right = 81.0
+offset_bottom = 116.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_ttpaw")
+max_value = 1.0
+show_percentage = false
+
+[node name="TextureRect" type="TextureRect" parent="ProgressBar" unique_id=698416136]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 14.0
+offset_right = 104.935486
+offset_bottom = 32.0
+texture = ExtResource("17_ttpaw")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Killzone" type="Area2D" parent="." unique_id=1798501587]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=815919872]
+shape = SubResource("CircleShape2D_ttpaw")

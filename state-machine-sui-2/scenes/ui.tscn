@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://b82mwjgilh12k"]
+
+[ext_resource type="Texture2D" uid="uid://0wwghmfnr6fh" path="res://sprites/red_circle.png" id="1_3b2b5"]
+[ext_resource type="Texture2D" uid="uid://c4f4im0c6rp1c" path="res://sprites/blue_circle.png" id="1_b3bc3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_b3bc3"]
+font_size = 48
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=665348293]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=827319390]
+offset_left = 56.0
+offset_top = 1960.0
+offset_right = 196.0
+offset_bottom = 2100.0
+texture = ExtResource("1_3b2b5")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="." unique_id=1941234862]
+offset_left = 214.0
+offset_top = 1995.0
+offset_right = 1130.0
+offset_bottom = 2062.0
+text = "[H] Sichtbarkeit Sichtradius umschalten"
+label_settings = SubResource("LabelSettings_b3bc3")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=442816762]
+offset_left = 60.0
+offset_top = 1780.0
+offset_right = 200.0
+offset_bottom = 1920.0
+texture = ExtResource("1_b3bc3")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Label2" type="Label" parent="." unique_id=2116427361]
+offset_left = 218.0
+offset_top = 1815.0
+offset_right = 1112.0
+offset_bottom = 1882.0
+text = "[J] Sichtbarkeit Hörradius umschalten"
+label_settings = SubResource("LabelSettings_b3bc3")
+
+[node name="Label3" type="Label" parent="." unique_id=1539174799]
+offset_left = 80.0
+offset_top = 1647.0
+offset_right = 974.0
+offset_bottom = 1714.0
+text = "[K] Godmode anschalten"
+label_settings = SubResource("LabelSettings_b3bc3")
