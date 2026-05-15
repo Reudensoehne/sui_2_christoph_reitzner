@@ -47,5 +47,5 @@ offset_left = 80.0
 offset_top = 1647.0
 offset_right = 974.0
 offset_bottom = 1714.0
-text = "[K] Godmode anschalten"
+text = "[K] Godmode umschalten"
 label_settings = SubResource("LabelSettings_b3bc3")
