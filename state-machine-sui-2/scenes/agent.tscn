@@ -171,7 +171,6 @@ expand_mode = 2
 stretch_mode = 4
 
 [node name="Killzone" type="Area2D" parent="." unique_id=1798501587]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=815919872]
 shape = SubResource("CircleShape2D_ttpaw")

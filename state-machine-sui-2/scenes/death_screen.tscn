@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://ca7ag3dsb2l0n"]
+
+[ext_resource type="Script" uid="uid://dmym7rjudujfw" path="res://scripts/death_screen.gd" id="1_uyutr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dwo6e"]
+font_size = 244
+
+[node name="Death Screen" type="CanvasLayer" unique_id=480908087 node_paths=PackedStringArray("continue_button", "menu_button")]
+script = ExtResource("1_uyutr")
+continue_button = NodePath("Panel/Continue")
+menu_button = NodePath("Panel/Menu")
+_menu_scene = "uid://bicxannjr0wpm"
+
+[node name="Panel" type="Panel" parent="." unique_id=1407942857]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel" unique_id=1838115022]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -699.0
+offset_top = 615.0
+offset_right = 700.0
+offset_bottom = 948.0
+grow_horizontal = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_dwo6e")
+
+[node name="Continue" type="Button" parent="Panel" unique_id=243864547]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -513.0
+offset_top = 1102.0
+offset_right = 610.5
+offset_bottom = 1309.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 72
+text = "Weiterspielen (mit Godmode)"
+
+[node name="Menu" type="Button" parent="Panel" unique_id=292563944]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -513.0
+offset_top = 1349.0
+offset_right = 610.5
+offset_bottom = 1556.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 72
+text = "Zurück zum Hauptmenü"

@@ -36,8 +36,7 @@ func set_new_nav_point(pos: Vector2):
 
 func kill_player(body: Node2D):
 	if CharacterController.player.godmode == false and killing == true:
-		#change scene
-		pass
+		GameManager.instance.kill_player()
 
 
 func _process(delta: float) -> void:
